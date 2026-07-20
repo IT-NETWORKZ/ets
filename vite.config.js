@@ -7,5 +7,9 @@ export default defineConfig({
   // Default is root ("/") for local dev and most hosts.
   // For GitHub Pages project sites (served from a subpath like /EXAM-3/),
   // pass --base=/YOUR-REPO-NAME/ on the build command instead of editing this file.
+<<<<<<< HEAD
   base: '/',
+=======
+  base: '/ets/',
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 })

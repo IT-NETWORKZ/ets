@@ -16,4 +16,8 @@ export const registerCandidate = (payload) =>
   api.post("/CandidateRegister", payload);
 
 export const registerAdmin = (payload) =>
+<<<<<<< HEAD
   api.post("/OrganizationRegister", payload);
+=======
+  api.post("/reg", payload);
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28

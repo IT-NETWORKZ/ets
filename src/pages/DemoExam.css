@@ -228,9 +228,14 @@
 
 /* ---- Exam runner ---- */
 .examrunner {
+<<<<<<< HEAD
   max-width: 1360px;
   display: grid;
   grid-template-columns: 1fr 320px;
+=======
+  display: grid;
+  grid-template-columns: 1fr 300px;
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   gap: 24px;
   align-items: start;
 }
@@ -240,6 +245,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+<<<<<<< HEAD
   padding: 32px 36px;
   display: flex;
   flex-direction: column;
@@ -251,6 +257,9 @@
   overflow-y: auto;
   padding-right: 6px;
   margin-bottom: 12px;
+=======
+  padding: 28px 30px;
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 }
 
 .examcard__head {
@@ -319,6 +328,7 @@
   background: var(--leaf-500); color: #fff; border-color: var(--leaf-500);
 }
 
+<<<<<<< HEAD
 .examcard__nav {
   display: flex;
   justify-content: flex-end;
@@ -351,6 +361,9 @@
 .examcard__iconbtn:disabled { opacity: 0.4; cursor: not-allowed; }
 .examcard__iconbtn--primary { background: linear-gradient(135deg, #4f9fe0, #2f7dd1); color: #fff; }
 .examcard__iconbtn--primary:hover:not(:disabled) { background: linear-gradient(135deg, #4f9fe0, #2f7dd1); opacity: 0.9; }
+=======
+.examcard__nav { display: flex; justify-content: space-between; align-items: center; }
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 
 .examcard__navbtn {
   display: flex; align-items: center; gap: 6px;
@@ -388,17 +401,26 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
   margin-bottom: 18px;
+<<<<<<< HEAD
   max-height: 360px;
   overflow-y: auto;
   padding-right: 4px;
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 }
 
 .palette__cell {
   aspect-ratio: 1;
+<<<<<<< HEAD
   width: 100%;
   border-radius: 8px;
   font-weight: 700;
   font-size: 13.5px;
+=======
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   border: 1px solid var(--line);
   background: var(--mist-100);
   color: var(--ink-600);
@@ -550,7 +572,10 @@
 }
 .exammodal__icon--warn { background: #fff4dd; color: var(--amber-500); }
 .exammodal__icon--time { background: #fdecec; color: #c0392b; }
+<<<<<<< HEAD
 .exammodal__icon--success { background: #eef8ef; color: var(--leaf-500); }
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 
 .exammodal h3 { font-size: 18px; color: var(--navy-950); margin-bottom: 10px; }
 .exammodal p { font-size: 13.5px; color: var(--ink-600); line-height: 1.6; margin-bottom: 24px; }

@@ -151,4 +151,8 @@ export default function PatternFields({ pattern, draft, setDraft }) {
       )}
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28

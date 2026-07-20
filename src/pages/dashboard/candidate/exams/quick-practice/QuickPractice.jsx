@@ -20,7 +20,11 @@ export default function QuickPractice() {
         result="Immediate"
         certificate="No"
       >
+<<<<<<< HEAD
         <Link to="/dashboard/candidate/exams/exam" className="examtype__cta">
+=======
+        <Link to="/demo-exam" className="examtype__cta">
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
           Start Quick Practice <HiOutlineArrowRight />
         </Link>
       </ExamTypeInfo>

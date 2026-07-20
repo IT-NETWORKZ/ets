@@ -69,7 +69,10 @@ export default function DemoExam() {
   const [focusWarning, setFocusWarning] = useState(null); // null | "fullscreen" | "tabswitch"
   const [violationCount, setViolationCount] = useState(0);
   const [showMalpractice, setShowMalpractice] = useState(false);
+<<<<<<< HEAD
   const [showSubmitSuccess, setShowSubmitSuccess] = useState(false);
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   const [keyLockNotice, setKeyLockNotice] = useState(false);
   const keyNoticeRef = useRef(0);
   const keyNoticeTimeoutRef = useRef(null);
@@ -78,7 +81,10 @@ export default function DemoExam() {
   const timeLeftRef = useRef(DURATION);
   const answersRef = useRef({});
   const violationRef = useRef(0);
+<<<<<<< HEAD
   const suppressFocusRef = useRef(false);
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   const navigate = useNavigate();
 
   const questions = useMemo(() => (subjectId ? QUESTION_BANK[subjectId] : []), [subjectId]);
@@ -111,7 +117,10 @@ export default function DemoExam() {
     if (stage !== "exam") return;
 
     function registerViolation(type) {
+<<<<<<< HEAD
       if (suppressFocusRef.current) return;
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
       violationRef.current += 1;
       setViolationCount(violationRef.current);
 
@@ -224,7 +233,10 @@ export default function DemoExam() {
     violationRef.current = 0;
     setViolationCount(0);
     setFocusWarning(null);
+<<<<<<< HEAD
     suppressFocusRef.current = false;
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
     setStage("exam");
     requestFullscreenSafe(examRootRef.current);
   }
@@ -263,6 +275,7 @@ export default function DemoExam() {
   function submit() {
     clearInterval(timerRef.current);
     finalizeAndSave(timeLeft);
+<<<<<<< HEAD
     suppressFocusRef.current = true;
     exitFullscreenSafe();
     setShowSubmitSuccess(true);
@@ -270,12 +283,18 @@ export default function DemoExam() {
 
   function confirmSubmitSuccess() {
     setShowSubmitSuccess(false);
+=======
+    exitFullscreenSafe();
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
     setStage("result");
   }
 
   function confirmTimeUp() {
     finalizeAndSave(0);
+<<<<<<< HEAD
     suppressFocusRef.current = true;
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
     exitFullscreenSafe();
     setShowTimeUp(false);
     setStage("result");
@@ -300,7 +319,10 @@ export default function DemoExam() {
   }
 
   function confirmExit() {
+<<<<<<< HEAD
     suppressFocusRef.current = true;
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
     exitFullscreenSafe();
     navigate("/");
   }
@@ -319,7 +341,11 @@ export default function DemoExam() {
     <div className={"demoexam" + (stage === "exam" ? " demoexam--locked" : "")} ref={examRootRef}>
       <div className="demoexam__topbar">
         <Link to="/" className="demoexam__brand">
+<<<<<<< HEAD
           <span className="demoexam__brand-e">e</span>XAM <span className="demoexam__brand-sep">/</span> {subjectName ? subjectName : "Demo Exam"}
+=======
+          <span className="demoexam__brand-e">e</span>XAM <span className="demoexam__brand-sep">/</span> Demo Assessment
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
         </Link>
         {stage === "exam" && (
           <div className="demoexam__timer-group">
@@ -472,6 +498,7 @@ export default function DemoExam() {
         )}
       </AnimatePresence>
 
+<<<<<<< HEAD
       {/* ---- Manual submit success ---- */}
       <AnimatePresence>
         {showSubmitSuccess && (
@@ -500,6 +527,8 @@ export default function DemoExam() {
         )}
       </AnimatePresence>
 
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
       {/* ---- Auto-submitted after repeated violations ---- */}
       <AnimatePresence>
         {showMalpractice && (
@@ -581,7 +610,11 @@ function SelectSubject({ subjectId, onChange, onNext, onHistory }) {
           </div>
         </motion.div>
 
+<<<<<<< HEAD
         {/* <motion.button
+=======
+        <motion.button
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
           className="examselect__history-btn"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -591,7 +624,11 @@ function SelectSubject({ subjectId, onChange, onNext, onHistory }) {
           onClick={onHistory}
         >
           <HiOutlineClipboardDocumentList /> Exam History
+<<<<<<< HEAD
         </motion.button> */}
+=======
+        </motion.button>
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
       </div>
 
       <div className="examselect__grid">
@@ -706,6 +743,7 @@ function ExamRunner({ questions, current, answers, marked, visited, onSelect, on
               <HiOutlineFlag /> {marked[current] ? "Marked" : "Mark for review"}
             </button>
           </div>
+<<<<<<< HEAD
           <div className="examcard__scrollbody">
             <h3 className="examcard__question">{q.q}</h3>
             <div className="examcard__options">
@@ -755,6 +793,42 @@ function ExamRunner({ questions, current, answers, marked, visited, onSelect, on
                 </button>
               )}
             </div>
+=======
+          <h3 className="examcard__question">{q.q}</h3>
+          <div className="examcard__options">
+            {q.options.map((opt, i) => (
+              <motion.button
+                key={i}
+                className={"examcard__option" + (answers[current] === i ? " examcard__option--active" : "")}
+                onClick={() => onSelect(current, i)}
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="examcard__option-letter">{String.fromCharCode(65 + i)}</span>
+                {opt}
+              </motion.button>
+            ))}
+          </div>
+
+          <div className="examcard__nav">
+            <button className="examcard__navbtn" disabled={current === 0} onClick={onPrev}>
+              <HiOutlineArrowLeft /> Previous
+            </button>
+            {current === questions.length - 1 ? (
+              <motion.button
+                className="examcard__submit"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={onSubmit}
+              >
+                <HiOutlineCheckCircle /> Submit Assessment
+              </motion.button>
+            ) : (
+              <button className="examcard__navbtn examcard__navbtn--primary" onClick={onNext}>
+                Next <HiOutlineArrowRight />
+              </button>
+            )}
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
           </div>
         </motion.div>
       </div>
@@ -849,9 +923,15 @@ function Result({ attempt, onRetake, onHistory }) {
           <motion.button className="result__retake" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} onClick={onRetake}>
             Retake Demo Exam
           </motion.button>
+<<<<<<< HEAD
           {/* <button className="result__history" onClick={onHistory}>
             <HiOutlineClipboardDocumentList /> Exam History
           </button> */}
+=======
+          <button className="result__history" onClick={onHistory}>
+            <HiOutlineClipboardDocumentList /> Exam History
+          </button>
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
           <Link to="/" className="result__home">Back to Home</Link>
         </div>
       </motion.div>

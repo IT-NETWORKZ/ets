@@ -143,8 +143,11 @@ async function submit(e) {
   setLoading(true);
 
   try {
+<<<<<<< HEAD
     let response;
 
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
     if (tab === "candidate") {
       const payload = {
         sFName: form.firstName,
@@ -153,11 +156,16 @@ async function submit(e) {
         sMobile: form.phone,
         sPassword: form.password,
         sCPassword: form.confirmPassword,
+<<<<<<< HEAD
         Dob: form.dob || null,
+=======
+        Dob: form.dob,
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
         sGender: form.gender,
         sCity: form.city,
         sAddress: form.address,
       };
+<<<<<<< HEAD
       console.log("Submitting CANDIDATE payload:", payload);
       response = await registerCandidate(payload);
     } else {
@@ -189,11 +197,37 @@ console.error("STATUS:", err.response?.status);
 console.error("ERROR DATA:", JSON.stringify(err.response?.data, null, 2));
 console.error("URL:", err.config?.url);
 
+=======
+      await registerCandidate(payload);
+    } else {
+      const payload = {
+        OrganizationName: form.orgName,
+        FirstName: form.firstName,
+        LastName: form.lastName,
+        Email: form.email,
+        PhoneNo: form.phone,
+        Password: form.password,
+        ConfirmPassword: form.confirmPassword,
+        DOB: form.dob,
+        Gender: form.gender,
+        City: form.city,
+      };
+      await registerAdmin(payload);
+    }
+
+    setSubmitted(true);
+  } catch (err) {
+    console.error("Registration Error:", err);
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
     if (err.response) {
       setApiError(
         err.response.data?.Message ||
         err.response.data?.message ||
+<<<<<<< HEAD
         (typeof err.response.data === "string" ? err.response.data : "") ||
+=======
+        err.response.data ||
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
         "Registration failed."
       );
     } else {
@@ -256,6 +290,7 @@ console.error("URL:", err.config?.url);
                       <button className="registercard__ghost" onClick={() => { setSubmitted(false); setForm({}); captchaRef.current?.reset(); }}>
                         Register another
                       </button>
+<<<<<<< HEAD
                       {/* <button className="registercard__primary" onClick={() => navigate("/")}>
                         Go to Login
                       </button> */}
@@ -263,6 +298,11 @@ console.error("URL:", err.config?.url);
                       <button className="registercard__primary" onClick={() => navigate(tab === "admin" ? "/?type=admin" : "/")}>
   Go to Login
 </button>
+=======
+                      <button className="registercard__primary" onClick={() => navigate("/")}>
+                        Go to Login
+                      </button>
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
                     </div>
                   </motion.div>
                 ) : (
@@ -298,6 +338,7 @@ console.error("URL:", err.config?.url);
                       I agree to the Terms & Conditions and Privacy Policy
                     </label>
 
+<<<<<<< HEAD
                     {apiError && (
   <motion.p
     className="registercard__api-error"
@@ -309,6 +350,8 @@ console.error("URL:", err.config?.url);
   </motion.p>
 )}
 
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
                   <motion.button
   type="submit"
   className="registercard__submit"

@@ -19,7 +19,10 @@ import SuperadminLogin from "./pages/SuperadminLogin";
 import DemoExam from "./pages/DemoExam";
 import CandidateDashboard from "./pages/dashboard/candidate/CandidateDashboard";
 import DemoExamCandidate from "./pages/dashboard/candidate/exams/demo/DemoExam";
+<<<<<<< HEAD
 import Exam from "./pages/dashboard/candidate/exams/exam/Exam";
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 import QuickPractice from "./pages/dashboard/candidate/exams/quick-practice/QuickPractice";
 import CustomPractice from "./pages/dashboard/candidate/exams/custom-practice/CustomPractice";
 import ScheduledNormalExam from "./pages/dashboard/candidate/exams/scheduled-normal/ScheduledNormalExam";
@@ -74,7 +77,10 @@ export default function App() {
               <Route path="/demo-exam" element={<PageTransition><DemoExam /></PageTransition>} />
               <Route path="/dashboard/candidate" element={<CandidateDashboard />} />
               <Route path="/dashboard/candidate/exams/demo" element={<DemoExamCandidate />} />
+<<<<<<< HEAD
               <Route path="/dashboard/candidate/exams/exam" element={<Exam />} />
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
               <Route path="/dashboard/candidate/exams/quick-practice" element={<QuickPractice />} />
               <Route path="/dashboard/candidate/exams/custom-practice" element={<CustomPractice />} />
               <Route path="/dashboard/candidate/exams/scheduled-normal" element={<ScheduledNormalExam />} />

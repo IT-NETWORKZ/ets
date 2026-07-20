@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { useState } from "react";
 // import { useSearchParams } from "react-router-dom"; // add this
 // import { motion, AnimatePresence } from "framer-motion";
@@ -298,16 +299,30 @@ import StatsBar from "../components/StatsBar";
 import HighlightBand from "../components/HighlightBand";
 import { loginCandidate, loginAdmin } from "../api/authApi";
 import { HiOutlineUser, HiOutlineLockClosed, HiOutlineEye, HiOutlineEyeSlash } from "react-icons/hi2";
+=======
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlineUser, HiOutlineLockClosed } from "react-icons/hi2";
+import { useNavigate, Link } from "react-router-dom";
+import StatsBar from "../components/StatsBar";
+import HighlightBand from "../components/HighlightBand";
+// import { loginCandidate } from "../api/authApi";
+import { loginCandidate, loginAdmin } from "../api/authApi";
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 import "./Home.css";
 import api from "../api/axios";
 
 const CLIENTS = ["IT-NetworkZ", "Kavin SA", "Nagpur Institute", "Prime Coaching", "Skillup Labs", "Bright Scholars"];
 
 export default function Home() {
+<<<<<<< HEAD
   const [showPassword, setShowPassword] = useState(false);
   const [searchParams] = useSearchParams();
   const requestedTab = searchParams.get("type") === "admin" ? "admin" : "candidate";
   const [authTab, setAuthTab] = useState(requestedTab);
+=======
+  const [authTab, setAuthTab] = useState("candidate");
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   const [remember, setRemember] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -315,6 +330,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   const [showForgotPanel, setShowForgotPanel] = useState(false);
   const [forgotEmail, setForgotEmail] = useState("");
   const [forgotStatus, setForgotStatus] = useState(""); // "", "sending", "sent", "error"
@@ -327,11 +343,14 @@ export default function Home() {
     }
   }, []);
 
+=======
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   function switchTab(tab) {
     setAuthTab(tab);
     setEmail("");
     setPassword("");
     setError("");
+<<<<<<< HEAD
     setShowPassword(false);
     setShowForgotPanel(false);
     setForgotStatus("");
@@ -398,6 +417,56 @@ export default function Home() {
     }
   }
 
+=======
+  }
+
+async function handleLogin() {
+  setError("");
+  setLoading(true);
+
+  if (!email.trim() || !password.trim()) {
+    setError("Please enter both email and password.");
+    setLoading(false);
+    return;
+  }
+
+  try {
+    const response =
+      authTab === "candidate"
+        ? await loginCandidate(email.trim(), password.trim())
+        : await loginAdmin(email.trim(), password.trim());
+
+    if (!response.data) {
+      setError("Invalid login response.");
+      return;
+    }
+
+    localStorage.setItem("userType", authTab);
+    localStorage.setItem("userData", JSON.stringify(response.data));
+
+    if (remember) {
+      localStorage.setItem("rememberedEmail", email.trim());
+    }
+
+    navigate(authTab === "candidate" ? "/dashboard/candidate" : "/dashboard/admin");
+  } catch (err) {
+    console.error("Login Error:", err);
+
+    if (err.response) {
+      setError(
+        err.response.data?.Message ||
+        err.response.data?.message ||
+        err.response.data ||
+        "Login failed."
+      );
+    } else {
+      setError("Unable to connect to the server.");
+    }
+  } finally {
+    setLoading(false);
+  }
+}
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
   return (
     <div className="home">
       <div className="home__hero">
@@ -518,6 +587,7 @@ export default function Home() {
                   <label className="authcard__label">
                     <HiOutlineLockClosed /> Password
                   </label>
+<<<<<<< HEAD
                   <div
                     className="authcard__password-wrap"
                     style={{ position: "relative", display: "flex", alignItems: "center" }}
@@ -557,12 +627,23 @@ export default function Home() {
                       {showPassword ? <HiOutlineEyeSlash /> : <HiOutlineEye />}
                     </button>
                   </div>
+=======
+                  <input
+                    className="authcard__input"
+                    type="password"
+                    placeholder="Enter Your Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+                  />
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
 
                   <div className="authcard__row">
                     <label className="authcard__remember">
                       <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
                       Remember Me
                     </label>
+<<<<<<< HEAD
                     <button
                       type="button"
                       className="authcard__forgot"
@@ -613,6 +694,11 @@ export default function Home() {
                     </motion.div>
                   )}
 
+=======
+                    <a href="#forgot" className="authcard__forgot">Forgot Password?</a>
+                  </div>
+
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
                   {error && (
                     <p className="authcard__error" style={{ color: "#e53e3e", fontSize: "0.85rem", marginTop: "4px" }}>
                       {error}
@@ -624,7 +710,11 @@ export default function Home() {
                     whileHover={{ y: -2, boxShadow: "0 12px 26px rgba(245,166,35,0.4)" }}
                     whileTap={{ scale: 0.97 }}
                     onClick={handleLogin}
+<<<<<<< HEAD
                     disabled={loading}
+=======
+                    disabled={loading}  
+>>>>>>> 2dcc0e4623f99cc21c3e604154fd563570b3fa28
                   >
                     {loading ? "Logging in..." : "Login"}
                   </motion.button>
